@@ -14,7 +14,7 @@ const randomNumberGenerator = () => {
 const createResponseObject = (res, url, shortURL) => {
   // Light validation to check if the short URL has already been taken
   let findShortURL = MockDatabase.find(item => JSON.parse(item)['short-url'] === shortURL)
-  if (!findShortURL) {    
+  if (!findShortURL) {
     let response = { "short-url": `/${shortURL}`, "url": url }
     res.send(response);
     return response
@@ -24,23 +24,24 @@ const createResponseObject = (res, url, shortURL) => {
 }
 
 /* POST homepage. */
-router.post('/', function (req, res) {  
+router.post('/', function (req, res) {
   // Light validation to check if the URL has already been shortened
   let findURL = MockDatabase.find(item => item.url === req.body.url)
   if (!findURL) {
     const shortURL = randomNumberGenerator()
     let responseLog = createResponseObject(res, req.body.url, shortURL)
     // Mock post to database
-    MockDatabase.push(JSON.stringify(responseLog))    
+    MockDatabase.push(JSON.stringify(responseLog))
   } else {
     res.send(JSON.parse(findURL))
-  }  
+  }
 });
 
 /* GET shorturl */
 router.get('/:shorturl', function (req, res) {
   const locationObject = MockDatabase.find(item => {
-    return JSON.parse(item)['short-url'].toString() === `/${req.params.shorturl}`})  
+    return JSON.parse(item)['short-url'].toString() === `/${req.params.shorturl}`
+  })
   if (locationObject) {
     res.redirect(JSON.parse(locationObject).url)
   } else {
