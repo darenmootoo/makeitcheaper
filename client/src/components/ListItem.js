@@ -8,9 +8,9 @@ const Box = styled.tr`
 `
 
 const StyledBox = posed(Box)({
-    hidden: { opacity: 0, x: 500},
+    hidden: { opacity: 0, x: 500 },
     visible: { opacity: 1, x: 0 }
-  });
+});
 
 class ListItem extends Component {
     constructor(props) {

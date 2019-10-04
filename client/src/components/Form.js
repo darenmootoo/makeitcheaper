@@ -21,23 +21,23 @@ font-size: 20px;
 class FormComponent extends Component {
     constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             url: 'http://'
         }
     }
 
     handleChange(e) {
-         this.setState({
-             url: e.target.value
-         })
+        this.setState({
+            url: e.target.value
+        })
     }
 
     render() {
         return (
-                <StyledForm data-test="form-component" onSubmit={(e) => this.props.handleSubmit(e, this.state.url)}>
-                    <StyledInput data-test="input-field" type="text" onChange={(e)=> this.handleChange(e)} defaultValue={this.state.url}/>
-                    <StyledButton type="submit">Submit</StyledButton>
-                </StyledForm>
+            <StyledForm data-test="form-component" onSubmit={(e) => this.props.handleSubmit(e, this.state.url)}>
+                <StyledInput data-test="input-field" type="text" onChange={(e) => this.handleChange(e)} defaultValue={this.state.url} />
+                <StyledButton type="submit">Submit</StyledButton>
+            </StyledForm>
         );
     }
 }

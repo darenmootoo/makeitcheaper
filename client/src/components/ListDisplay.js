@@ -23,7 +23,7 @@ const ListDisplay = (props) => {
     return (
         <StyledDiv>
             <StyledTable data-test="list-display">
-                <thead style={{border: "1px solid black"}}>
+                <thead style={{ border: "1px solid black" }}>
                     <tr>
                         <th>URL</th>
                         <th>Short URL</th>

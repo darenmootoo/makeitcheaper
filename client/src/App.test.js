@@ -29,10 +29,7 @@ it('renders input field, list of URLs', () => {
 
 it('updates the Form state when then input field is changed', async () => {
   const wrapper = mount(<Form />)
-  const inputField = wrapper.find("[data-test='input-field']")
-  wrapper.instance().handleChange({"target":{"value":"http://www.youtube.com"}})
-  console.log(wrapper.state().url === 'http://www.youtube.com');
-  
+  wrapper.instance().handleChange({ "target": { "value": "http://www.youtube.com" } })
   expect(wrapper.state().url).toEqual('http://www.youtube.com')
 })
 
