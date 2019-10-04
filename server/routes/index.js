@@ -34,7 +34,7 @@ router.post('/', function (req, res) {
     MockDatabase.push(JSON.stringify(responseLog))    
   } else {
     res.send(JSON.parse(findURL))
-  }
+  }  
 });
 
 /* GET shorturl */

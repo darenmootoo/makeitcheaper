@@ -1,6 +1,7 @@
 import React from 'react';
 import ListItem from '../components/ListItem'
 import styled from 'styled-components'
+import PropTypes from 'prop-types';
 
 const StyledTable = styled.table`
 text-align: left;
@@ -18,7 +19,6 @@ margin: 0 auto;
 border-radius: 10px;
 `
 
-const test = [1, 2, 3]
 const ListDisplay = (props) => {
     return (
         <StyledDiv>
@@ -30,8 +30,8 @@ const ListDisplay = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {test.map((item, index) => (
-                        <ListItem key={index}/>
+                    {props.items.map((item, index) => (
+                        <ListItem url={item.url} shorturl={item['short-url']} key={index} />
                     ))}
                 </tbody>
             </StyledTable>
@@ -41,3 +41,6 @@ const ListDisplay = (props) => {
 
 export default ListDisplay;
 
+ListDisplay.propTypes = {
+    items: PropTypes.array
+}

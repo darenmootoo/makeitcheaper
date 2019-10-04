@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import posed from 'react-pose';
 import styled from 'styled-components'
+import PropTypes from 'prop-types';
 
 const Box = styled.tr`
     color: white;
@@ -37,3 +38,7 @@ class ListItem extends Component {
 
 export default ListItem;
 
+ListItem.propTypes = {
+    url: PropTypes.string,
+    shorturl: PropTypes.string,
+}
